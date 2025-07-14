@@ -7,5 +7,3 @@ checkbox.addEventListener('change', () => {
 });
 
 // Función del juego 
-
-
