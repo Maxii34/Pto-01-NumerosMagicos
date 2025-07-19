@@ -1,12 +1,20 @@
 // Modo oscuro / claro
-const checkbox = document.querySelector('.theme-checkbox');
+const checkbox = document.querySelector(".theme-checkbox");
 
-checkbox.addEventListener('change', () => {
-  const theme = checkbox.checked ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-bs-theme', theme);
+checkbox.addEventListener("change", () => {
+  const theme = checkbox.checked ? "dark" : "light";
+  document.documentElement.setAttribute("data-bs-theme", theme);
 });
 
-// Función del juego 
+/*
+que contenga un botón comenzar el juego,
+en ese momento se crea un número aleatorio que el usuario deberá adivinar
+al presionar el botón enviar mostrar en un alert si el usuario adivino o no el número mágico
+si no lo adivino indicarle con un alert si el numero que ingreso es mayor o menor al número mágico. 
+Cuando el usuario adivine el numero mostrar un mensaje indicando al usuario que adivino el numero.
+*/
+
+// Función del juego
 
 let numeroMagico = null;
 let juegoIniciado = false;
@@ -40,12 +48,16 @@ function verificarNumero() {
 
   if (numeroIngresado === numeroMagico) {
     alert("🎉 ¡Felicidades! Adivinaste el número mágico.");
-    juegoIniciado = false; 
-    inputNumero.value = ""; 
+    juegoIniciado = false;
+    inputNumero.value = "";
   } else if (numeroIngresado < numeroMagico) {
-    alert("El número que ingresaste es menor al número mágico. ¡Inténtalo de nuevo!");
+    alert(
+      "El número que ingresaste es menor al número mágico. ¡Inténtalo de nuevo!"
+    );
   } else {
-    alert("El número que ingresaste es mayor al número mágico. ¡Inténtalo de nuevo!");
+    alert(
+      "El número que ingresaste es mayor al número mágico. ¡Inténtalo de nuevo!"
+    );
   }
 }
 
