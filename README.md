@@ -25,6 +25,9 @@ Este es un sencillo juego interactivo desarrollado con **HTML**, **CSS (Bootstra
 | JavaScript     | Lógica del juego               |
 
 ---
+## Demo del proyecto [Aqui.](https://pto-01-numerosmagicos.netlify.app/)
+
+---
 
 ## 🚀 Cómo Ejecutar el Proyecto
 
