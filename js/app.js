@@ -37,59 +37,62 @@ function detenerJuego() {
   inputNumero.value = "";
 }
 
+const textoResultado = document.getElementById("textoResultado");
+
 function verificarNumero() {
   if (!juegoIniciado) {
-    alert("Primero debes comenzar el juego.");
+    textoResultado.textContent = "Primero debes comenzar el juego.";
     return;
   }
 
   const numeroIngresado = Number(inputNumero.value);
 
   if (isNaN(numeroIngresado) || numeroIngresado < 1 || numeroIngresado > 100) {
-    alert("Por favor, ingresa un número válido entre 1 y 100.");
+    textoResultado.textContent = "Por favor, ingresa un número válido entre 1 y 100.";
     return;
   }
 
   if (numeroIngresado === numeroMagico) {
-    alert("🎉 ¡Felicidades! Adivinaste el número mágico.");
+    textoResultado.textContent = "🎉 ¡Felicidades! Adivinaste el número mágico.";
     juegoIniciado = false;
     inputNumero.value = "";
   } else if (numeroIngresado < numeroMagico) {
-    alert(
-      "El número que ingresaste es menor al número mágico. ¡Inténtalo de nuevo!"
-    );
+    textoResultado.textContent = "El número que ingresaste es menor al número mágico. ¡Inténtalo de nuevo!";
   } else {
-    alert(
-      "El número que ingresaste es mayor al número mágico. ¡Inténtalo de nuevo!"
-    );
+    textoResultado.textContent = "El número que ingresaste es mayor al número mágico. ¡Inténtalo de nuevo!";
   }
 }
 
-btnComenzar.addEventListener("click", comenzarJuego);
+//btnComenzar.addEventListener("click", comenzarJuego);
 btnEnviar.addEventListener("click", verificarNumero);
 
 
-//Efecto cambiar de color y texto
+let juegoEncendido = false; // Estado global
+
 const cambiarTexto = () => {
-  // Seleccionamos el párrafo
   const texto = document.getElementById("cambiarTexto");
   const btnComenzar = document.getElementById("btnComenzar");
 
-  // Detectamos el estado actual del botón
-  if (btnComenzar.textContent === "Comenzar Juego") {
-    texto.textContent = "Juego detenido. Haz clic en 'Comenzar' para volver a jugar.";
+  if (!juegoEncendido) {
+    // COMENZAR JUEGO
+    juegoEncendido = true;
+    texto.textContent = "El juego ha comenzado, ingresa un número del 0 al 100";
     btnComenzar.textContent = "Parar Juego";
-    btnComenzar.classList.replace("btn-primary", "btn-danger");
-
+    btnComenzar.classList.remove("btn-primary");
+    btnComenzar.classList.add("btn-danger");
     comenzarJuego();
   } else {
-    texto.textContent = "El juego ha comenzado, ingresa un número del 0 al 100";
+    // DETENER JUEGO
+    juegoEncendido = false;
+    texto.textContent = "Juego detenido. Haz clic en 'Comenzar Juego' para volver a jugar.";
     btnComenzar.textContent = "Comenzar Juego";
-    btnComenzar.classList.replace("btn-danger", "btn-primary");
-
+    btnComenzar.classList.remove("btn-danger");
+    btnComenzar.classList.add("btn-primary");
     detenerJuego();
   }
 };
 
 
+textoResultado.textContent = "Tu mensaje aquí";
 
+setTimeout(() => {textoResultado.textContent = "";}, 1500); 

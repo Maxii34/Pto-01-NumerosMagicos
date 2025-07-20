@@ -55,23 +55,28 @@
     </header>
     <main class="container">
       <section>
-        <div class="container d-flex align-content-center justify-content-center">
-        <p id="mensajeInfo" class="alert alert-info mt-3 text-center d-none" ></p>
+        <div id="mensajeResultado" class="mt-3 text-center">
+          <p id="textoResultado"></p>
         </div>
       </section>
 
       <section class="py-5">
         <div class="container text-center bg-css">
           <div class="mb-3">
-            <h5 class=" display-6">¡Adiviná el Número Mágico!</h5>
-            <strong id="cambiarTexto" class="text-muted">Haz clic en "Comenzar Juego"</strong>
+            <h5 class="display-6">¡Adiviná el Número Mágico!</h5>
+            <p>Haz clic en "Comenzar Juego</p>
+            <strong id="cambiarTexto" class="text-muted"></strong>
           </div>
-          <button id="btnComenzar" class="btn btn-primary mb-4" onclick="cambiarTexto()">
+          <button
+            id="btnComenzar"
+            class="btn btn-primary mb-4"
+            onclick="cambiarTexto()"
+          >
             Comenzar Juego
           </button>
-          
+
           <div class="row justify-content-center">
-            <div class="col-md-4 col-sm-8 ">
+            <div class="col-md-4 col-sm-8">
               <input
                 type="number"
                 id="inputNumero"
@@ -87,7 +92,6 @@
             </div>
           </div>
         </div>
-
       </section>
     </main>
     <footer>
