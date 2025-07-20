@@ -56,20 +56,7 @@
     <main class="container">
       <section>
         <div class="container d-flex align-content-center justify-content-center">
-          <div class="w-50 text-center">
-            <h1>Números mágicos</h1>
-            <p>
-              1- Crea una web con bootstrap y js, que contenga un botón comenzar
-              el juego, en ese momento se crea un número aleatorio que el
-              usuario deberá adivinar, la interfaz del usuario debe tener además
-              un input para ingresar un número y un botón enviar, al presionar
-              el botón enviar mostrar en un alert si el usuario adivino o no el
-              número mágico, si no lo adivino indicarle con un alert si el
-              numero que ingreso es mayor o menor al número mágico. Cuando el
-              usuario adivine el numero mostrar un mensaje indicando al usuario
-              que adivino el numero.
-            </p>
-          </div>
+        <p id="mensajeInfo" class="alert alert-info mt-3 text-center d-none" ></p>
         </div>
       </section>
 
@@ -77,12 +64,12 @@
         <div class="container text-center bg-css">
           <div class="mb-3">
             <h5 class=" display-6">¡Adiviná el Número Mágico!</h5>
-            <strong>Ingresá numeros del 0 al 100!</strong>
+            <strong id="cambiarTexto" class="text-muted">Haz clic en "Comenzar Juego"</strong>
           </div>
-          <button id="btnComenzar" class="btn btn-primary mb-4">
+          <button id="btnComenzar" class="btn btn-primary mb-4" onclick="cambiarTexto()">
             Comenzar Juego
           </button>
-
+          
           <div class="row justify-content-center">
             <div class="col-md-4 col-sm-8 ">
               <input
@@ -100,6 +87,7 @@
             </div>
           </div>
         </div>
+
       </section>
     </main>
     <footer>

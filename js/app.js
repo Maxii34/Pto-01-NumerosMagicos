@@ -22,6 +22,7 @@ let juegoIniciado = false;
 const btnComenzar = document.getElementById("btnComenzar");
 const btnEnviar = document.getElementById("btnEnviar");
 const inputNumero = document.getElementById("inputNumero");
+const mensajeInicio = document.getElementById("mensajeInicio");
 
 function comenzarJuego() {
   numeroMagico = Math.floor(Math.random() * 100) + 1;
@@ -29,8 +30,11 @@ function comenzarJuego() {
   juegoIniciado = true;
 
   inputNumero.value = "";
+}
 
-  alert("¡El juego ha comenzado! Adivina el número mágico entre 1 y 100.");
+function detenerJuego() {
+  juegoIniciado = false;
+  inputNumero.value = "";
 }
 
 function verificarNumero() {
@@ -63,3 +67,29 @@ function verificarNumero() {
 
 btnComenzar.addEventListener("click", comenzarJuego);
 btnEnviar.addEventListener("click", verificarNumero);
+
+
+//Efecto cambiar de color y texto
+const cambiarTexto = () => {
+  // Seleccionamos el párrafo
+  const texto = document.getElementById("cambiarTexto");
+  const btnComenzar = document.getElementById("btnComenzar");
+
+  // Detectamos el estado actual del botón
+  if (btnComenzar.textContent === "Comenzar Juego") {
+    texto.textContent = "Juego detenido. Haz clic en 'Comenzar' para volver a jugar.";
+    btnComenzar.textContent = "Parar Juego";
+    btnComenzar.classList.replace("btn-primary", "btn-danger");
+
+    comenzarJuego();
+  } else {
+    texto.textContent = "El juego ha comenzado, ingresa un número del 0 al 100";
+    btnComenzar.textContent = "Comenzar Juego";
+    btnComenzar.classList.replace("btn-danger", "btn-primary");
+
+    detenerJuego();
+  }
+};
+
+
+
